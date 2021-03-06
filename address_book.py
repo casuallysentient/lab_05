@@ -9,16 +9,19 @@ def get_formatted_address_string(address, city, country, name, postal_code):
     :param postal_code: the contact's zip code
     :return: formatted version of the string with all the above information
     """
-    if postal_code == 0:
-        formatted_string = name + "\n" + address + "\n" + city + ", " + country
-        return formatted_string
-    formatted_string = name + "\n" + address + "\n" + city + ", " + country + "\n" + str(postal_code)
+    if name == "":
+        name = "Undisclosed Recipient"
+    formatted_string = name + "\n" + address + "\n" + city + ", " + country
+    if postal_code != 0:
+        formatted_string = formatted_string + "\n" + str(postal_code)
     return formatted_string
 
 
 def main():
     """
     Passes the relevant information into get_formatted_address_string and then prints the returned formatted string.
+
+    :return: none
     """
     test_name = "Reilly Ford"
     test_address = "101 Johnson St"
