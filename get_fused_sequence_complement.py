@@ -24,7 +24,6 @@ def get_fused_sequence_complement(sequence_a, sequence_b):
         if len(sequence_b) > x:
             if sequence_b[x] in ("A", "T", "C", "G"):
                 combo_sequence = combo_sequence + sequence_b[x]
-        print(combo_sequence)
     comp_sequence = get_complement(combo_sequence)
     return comp_sequence
 
