@@ -15,16 +15,16 @@ def get_fused_sequence_complement(sequence_a, sequence_b):
     combo_sequence = ""
     if len(sequence_a) >= len(sequence_b):
         longer_sequence = sequence_a
-        shorter_sequence = sequence_b
     else:
         longer_sequence = sequence_b
-        shorter_sequence = sequence_a
     for x in range(len(longer_sequence)):
-        if longer_sequence[x] == "A" or longer_sequence[x] == "T" or longer_sequence[x] == "C" or longer_sequence[x] == "G":
-            combo_sequence = combo_sequence + longer_sequence[x]
-        if len(shorter_sequence) > x:
-            if shorter_sequence[x] in ("A", "T", "C", "G"):
-                combo_sequence = combo_sequence + shorter_sequence[x]
+        if len(sequence_a) > x:
+            if sequence_a[x] in ("A", "T", "C", "G"):
+                combo_sequence = combo_sequence + sequence_a[x]
+        if len(sequence_b) > x:
+            if sequence_b[x] in ("A", "T", "C", "G"):
+                combo_sequence = combo_sequence + sequence_b[x]
+        print(combo_sequence)
     comp_sequence = get_complement(combo_sequence)
     return comp_sequence
 
@@ -52,12 +52,13 @@ def get_complement(combo_sequence):
             comp_sequence += "C"
     return comp_sequence
 
+
 def main():
     """
     Just some sample behavior. Feel free to try your own!
     """
-    sequence_a = "ACTGGGTA"
-    sequence_b = "TTZAG"
+    sequence_a = "XXATGTGT"
+    sequence_b = "ACGTGTATGCTGTGTGTACGTGTGATCG"
     fused_sequence_complement = get_fused_sequence_complement(sequence_a, sequence_b)
     print(fused_sequence_complement)
 

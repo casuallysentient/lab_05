@@ -11,9 +11,9 @@ def get_formatted_address_string(address, city, country, name, postal_code):
     """
     if name == "":
         name = "Undisclosed Recipient"
-    formatted_string = name + "\n" + address + "\n" + city + ", " + country
-    if postal_code != 0:
-        formatted_string = formatted_string + "\n" + str(postal_code)
+    if postal_code == 0:
+        postal_code = ""
+    formatted_string = name + "\n" + address + "\n" + city + ", " + country + "\n" + str(postal_code)
     return formatted_string
 
 
@@ -27,7 +27,7 @@ def main():
     test_address = "101 Johnson St"
     test_city = "Brooklyn, NY"
     test_country = "United States"
-    test_postal_code = 11201
+    test_postal_code = 0
 
     address_string = get_formatted_address_string(address=test_address, city=test_city, country=test_country,
                                                   name=test_name, postal_code=test_postal_code)
